@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col p-4 w-1/2 max-w-xl m-auto">
+    <main className="flex min-h-screen flex-col w-1/2 max-w-xl m-auto border border-y-0 border-slate-800">
       <Bio />
       <Feed posts={posts} />
     </main>
