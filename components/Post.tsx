@@ -7,7 +7,7 @@ type PostProps = {
 
 export const Post: FC<PostProps> = ({ post }) => {
   return (
-    <div className="border-b border-slate-800 border-dashed pb-4">
+    <div className="border-b border-slate-800 border-dashed p-4">
       {post.pinned && (
         <p className="text-sm mb-2 font-semibold text-slate-500">Pinned Post</p>
       )}
