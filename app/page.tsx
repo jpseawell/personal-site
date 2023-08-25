@@ -2,7 +2,6 @@ import { Bio } from "@/components/Bio";
 import { Feed } from "@/components/Feed";
 import { Header } from "@/components/Header";
 import { posts } from "@/data/posts";
-import Image from "next/image";
 
 export default function Home() {
   return (

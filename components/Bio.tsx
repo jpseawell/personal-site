@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { CustomLink } from "./CustomLink";
 
 export const Bio: FC = () => {
   return (
@@ -7,7 +8,8 @@ export const Bio: FC = () => {
       <br />
       <p>Digital Creator & Software Engineer</p>
       <br />
-      About Me | Resume
+      <CustomLink href="/about">About Me</CustomLink> |{" "}
+      <CustomLink href="/resume">Resumé</CustomLink>
     </div>
   );
 };
