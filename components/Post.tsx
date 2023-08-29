@@ -17,22 +17,27 @@ export const Post: FC<PostProps> = ({ post }) => {
   };
 
   return (
-    <div className="border-b border-slate-800 border-dashed p-4">
-      {post.pinned && (
-        <p className="text-sm mb-2 font-semibold text-slate-500">Pinned Post</p>
-      )}
-      <p className="mb-2">
-        <span className="font-semibold">Justin Seawell 👨🏻‍🏭</span>
-        <span className="font-light text-slate-600">
-          {" "}
-          · {formatDateTime(post.date)}
-        </span>
-      </p>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: post.content,
-        }}
-      ></div>
-    </div>
+    <a href={`posts/${post.id}`}>
+      <div className="border-b border-slate-800 border-dashed p-4">
+        {post.pinned && (
+          <p className="text-sm mb-2 font-semibold text-slate-500">
+            Pinned Post
+          </p>
+        )}
+        <p className="mb-2">
+          <span className="font-semibold">Justin Seawell 👨🏻‍🏭</span>
+          <span className="font-light text-slate-600">
+            {" "}
+            · {formatDateTime(post.date)}
+          </span>
+        </p>
+        {/* object tag needed for rendering links inside content */}
+        <object
+          dangerouslySetInnerHTML={{
+            __html: post.content,
+          }}
+        />
+      </div>
+    </a>
   );
 };
