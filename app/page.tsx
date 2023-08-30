@@ -2,6 +2,11 @@ import { Bio } from "@/components/Bio";
 import { Feed } from "@/components/Feed";
 import { Header } from "@/components/Header";
 import { posts } from "@/data/posts";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Welcome | JustinSeawell.com",
+};
 
 export default function HomePage() {
   return (

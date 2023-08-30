@@ -14,7 +14,9 @@ export const Feed: FC<FeedProps> = ({ posts }) => {
       </div>
       <div>
         {posts.map((post) => (
-          <Post post={post} key={post.id} />
+          <a key={post.id} href={`posts/${post.id}`}>
+            <Post post={post} />
+          </a>
         ))}
       </div>
     </>
