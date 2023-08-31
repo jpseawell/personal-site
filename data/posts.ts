@@ -19,4 +19,22 @@ export const posts: Post[] = [
     pinned: false,
     content: "I wrote this while streaming on Twitch!! 📡",
   },
+  {
+    id: 3,
+    date: "2023-08-26T11:51:00-05:00",
+    pinned: false,
+    content: "I wrote this while streaming on Twitch!! 📡",
+  },
+  {
+    id: 4,
+    date: "2023-08-27T11:51:00-05:00",
+    pinned: false,
+    content: "(second page) I wrote this while streaming on Twitch!! 📡",
+  },
+  {
+    id: 5,
+    date: "2023-08-28T11:51:00-05:00",
+    pinned: false,
+    content: "(second page) I wrote this while streaming on Twitch!! 📡",
+  },
 ];
