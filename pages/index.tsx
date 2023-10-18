@@ -9,6 +9,7 @@ interface HomePageProps {
 }
 
 export const getStaticProps = (() => {
+  // TODO: Return slice of posts based on page limit
   return { props: { posts } };
 }) satisfies GetStaticProps<HomePageProps>;
 

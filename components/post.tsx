@@ -1,3 +1,4 @@
+import { content } from "@/data/content";
 import { Post as PostData } from "@/data/posts";
 import { DateTime } from "luxon";
 import { FC } from "react";
@@ -22,7 +23,7 @@ export function Post({ post }: PostProps) {
         <p className="text-sm mb-2 font-semibold text-slate-500">Pinned Post</p>
       )}
       <p className="mb-2">
-        <span className="font-semibold">Justin Seawell 👨🏻‍🏭</span>
+        <span className="font-semibold">{content.profileName}</span>
         <span className="font-light text-slate-600">
           {" "}
           · {formatDateTime(post.date)}
