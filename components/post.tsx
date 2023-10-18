@@ -1,7 +1,6 @@
 import { content } from "@/data/content";
 import { Post as PostData } from "@/data/posts";
 import { DateTime } from "luxon";
-import { FC } from "react";
 
 type PostProps = {
   post: PostData;

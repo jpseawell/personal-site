@@ -25,3 +25,7 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+a.link {
+  @apply text-blue-500;
+}

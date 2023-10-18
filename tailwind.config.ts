@@ -11,9 +11,8 @@ const config: Config = {
       typography: {
         DEFAULT: {
           css: {
-            h1: {
-              fontWeight: "700",
-              fontSize: "2rem",
+            h2: {
+              marginBottom: 8,
             },
           },
         },
