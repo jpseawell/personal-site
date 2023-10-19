@@ -6,6 +6,7 @@ export interface Post {
 }
 
 export const posts: Post[] = [
+  // Pinned
   {
     id: 1,
     date: "2023-10-18T20:26:19.930Z",

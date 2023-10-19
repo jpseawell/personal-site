@@ -1,21 +1,12 @@
 import { content } from "@/data/content";
 import { Post as PostData } from "@/data/posts";
-import { DateTime } from "luxon";
+import FormattedDateTime from "./formattedDateTime";
 
 type PostProps = {
   post: PostData;
 };
 
 export function Post({ post }: PostProps) {
-  const formatDateTime = (dtStr: string) => {
-    const dateTime = DateTime.fromISO(dtStr);
-
-    if (Math.ceil(dateTime.diffNow("months").as("months")) < -1)
-      return dateTime.toFormat("MMMM dd, yyyy");
-
-    return dateTime.toRelative();
-  };
-
   return (
     <div className="border-b border-slate-800 border-dashed p-4">
       {post.pinned && (
@@ -25,7 +16,7 @@ export function Post({ post }: PostProps) {
         <span className="font-semibold">{content.profileName}</span>
         <span className="font-light text-slate-600">
           {" "}
-          · {formatDateTime(post.date)}
+          · <FormattedDateTime isoDateTime={post.date} />
         </span>
       </p>
       {/* object tag needed for rendering links inside content */}
