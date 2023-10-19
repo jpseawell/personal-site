@@ -16,18 +16,23 @@ export const getStaticProps = (({ params }) => {
   const post = posts.find((post) => post.id.toString() === id);
   if (!post) throw new Error("static prop post not found");
 
-  return { props: { post } };
-}) satisfies GetStaticProps<{ post: Post }>;
+  const title = `Justin Seawell: "${post.content.substring(0, 30)}...`;
+
+  return { props: { title, post } };
+}) satisfies GetStaticProps<{ title: string; post: Post }>;
 
 export default function PostPage({
+  title,
   post,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <Layout>
-      <div className={"p-4"}>
-        <BackButton />
-      </div>
-      <PostComponent post={post} />
-    </Layout>
+    <>
+      <Layout title={title}>
+        <div className={"p-4"}>
+          <BackButton />
+        </div>
+        <PostComponent post={post} />
+      </Layout>
+    </>
   );
 }

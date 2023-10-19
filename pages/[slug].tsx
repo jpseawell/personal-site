@@ -25,7 +25,7 @@ export default function Article({
   article,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <BackPageLayout>
+    <BackPageLayout title={`${article.title} by Justin Seawell`}>
       <article className="prose lg:prose-xl dark:prose-invert">
         <h1>{article.title}</h1>
         <div className="font-light text-slate-600">
