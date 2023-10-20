@@ -2,6 +2,7 @@ import { content } from "@/data/content";
 import { Post as PostData } from "@/data/posts";
 import FormattedDateTime from "./formattedDateTime";
 import Head from "next/head";
+import Gist from "react-gist";
 
 type PostProps = {
   post: PostData;
@@ -29,6 +30,12 @@ export function Post({ post }: PostProps) {
             __html: post.content,
           }}
         />
+        {/* Embedded Content */}
+        {post.showcase && (
+          <div className="h-[350px] overflow-y-auto border border-slate-600 mt-4">
+            {post.showcase.gistId && <Gist id={post.showcase.gistId} />}
+          </div>
+        )}
       </div>
     </>
   );
