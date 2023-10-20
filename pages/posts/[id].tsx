@@ -2,6 +2,7 @@ import BackButton from "@/components/backButton";
 import Layout from "@/components/layout";
 import { Post as PostComponent } from "@/components/post";
 import { Post, posts } from "@/data/posts";
+import { stripHTMLButKeepAt } from "@/utils";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 
 export const getStaticPaths = (() => {
@@ -16,7 +17,9 @@ export const getStaticProps = (({ params }) => {
   const post = posts.find((post) => post.id.toString() === id);
   if (!post) throw new Error("static prop post not found");
 
-  const title = `Justin Seawell: "${post.content.substring(0, 30)}...`;
+  const title = `Justin Seawell: "${stripHTMLButKeepAt(
+    post.content.substring(0, 100).trim()
+  )}...`;
 
   return { props: { title, post } };
 }) satisfies GetStaticProps<{ title: string; post: Post }>;
