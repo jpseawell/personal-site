@@ -1,14 +1,14 @@
 import { content } from "@/data/content";
 import { Post as PostData } from "@/data/posts";
 import FormattedDateTime from "./formattedDateTime";
-import Head from "next/head";
 import Gist from "react-gist";
 
 type PostProps = {
   post: PostData;
+  expanded?: boolean;
 };
 
-export function Post({ post }: PostProps) {
+export function Post({ post, expanded }: PostProps) {
   return (
     <>
       <div className="border-b border-slate-800 border-dashed p-4">
@@ -32,7 +32,11 @@ export function Post({ post }: PostProps) {
         />
         {/* Embedded Content */}
         {post.showcase && (
-          <div className="h-[350px] overflow-y-auto border border-slate-600 mt-4">
+          <div
+            className={`${
+              expanded ? "" : "h-[350px]"
+            } overflow-y-auto border border-slate-600 mt-4`}
+          >
             {post.showcase.gistId && <Gist id={post.showcase.gistId} />}
           </div>
         )}

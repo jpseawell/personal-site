@@ -34,7 +34,7 @@ export default function PostPage({
         <div className={"p-4"}>
           <BackButton />
         </div>
-        <PostComponent post={post} />
+        <PostComponent post={post} expanded />
       </Layout>
     </>
   );
