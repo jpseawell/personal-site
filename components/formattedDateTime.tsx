@@ -7,8 +7,8 @@ type FormattedDateTimeProps = {
 const formatDateTime = (dtStr: string) => {
   const dateTime = DateTime.fromISO(dtStr);
 
-  if (Math.ceil(dateTime.diffNow("months").as("months")) < -1)
-    return dateTime.toFormat("MMMM dd, yyyy");
+  if (Math.ceil(dateTime.diffNow("days").as("days")) < -3)
+    return dateTime.toFormat("MMM. dd, yyyy");
 
   return dateTime.toRelative();
 };
