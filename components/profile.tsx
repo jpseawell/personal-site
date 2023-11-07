@@ -25,7 +25,6 @@ export default function Profile() {
               src={githubSVG}
               alt="Justin's Github"
               width={28}
-              height={28}
             />
           </a>
         </div>

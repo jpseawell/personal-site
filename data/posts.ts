@@ -5,6 +5,12 @@ export interface Post {
   pinned?: boolean;
   showcase?: {
     gistId?: string;
+    image?: {
+      src: string;
+      alt: string;
+      width: number;
+      height: number;
+    };
   };
 }
 
@@ -16,6 +22,21 @@ export const posts: Post[] = [
     pinned: true,
     content:
       'Hello, welcome to my website. I post here about topics I\'m interested in, and projects I\'m working on. <br /><br />🔗 <a href="/about" class="link">About Me</a> <br />🔗 <a href="/resume" class="link">Resumé</a>',
+  },
+  {
+    id: 3,
+    date: "2023-11-07T16:51:59.165Z",
+    pinned: false,
+    content:
+      "Still a bit of progress to be made on this front. Perhaps someone will create a GPT for teaching data structures.",
+    showcase: {
+      image: {
+        src: "/linked-list.jpeg",
+        alt: "Screenshot of DALL-E 3 generating a Linked List diagram",
+        width: 828,
+        height: 491,
+      },
+    },
   },
   {
     id: 2,

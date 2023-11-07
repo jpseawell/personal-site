@@ -2,6 +2,7 @@ import { content } from "@/data/content";
 import { Post as PostData } from "@/data/posts";
 import FormattedDateTime from "./formattedDateTime";
 import Gist from "react-gist";
+import Image from "next/image";
 
 type PostProps = {
   post: PostData;
@@ -32,12 +33,25 @@ export function Post({ post, expanded }: PostProps) {
         />
         {/* Embedded Content */}
         {post.showcase && (
-          <div
-            className={`${
-              expanded ? "" : "h-[350px]"
-            } overflow-y-auto border border-slate-600 mt-4`}
-          >
-            {post.showcase.gistId && <Gist id={post.showcase.gistId} />}
+          <div className="mt-4">
+            {post.showcase.gistId && (
+              <div
+                className={`${
+                  expanded ? "" : "h-[350px]"
+                } overflow-y-auto border border-slate-600`}
+              >
+                <Gist id={post.showcase.gistId} />
+              </div>
+            )}
+            {post.showcase.image && (
+              <Image
+                className="inline-block h-auto w-full text-center"
+                src={post.showcase.image.src}
+                alt={post.showcase.image.alt}
+                width={post.showcase.image.width}
+                height={post.showcase.image.height}
+              />
+            )}
           </div>
         )}
       </div>
