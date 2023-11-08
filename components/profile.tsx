@@ -30,7 +30,7 @@ export default function Profile() {
         </div>
 
         {/* Profile Info */}
-        <div className="prose mt-0 md:mt-8 p-4 prose dark:prose-invert">
+        <div className="mt-0 md:mt-8 p-4 prose dark:prose-invert">
           <h2>{content.profileName}</h2>
           <p>{content.profileBio}</p>
         </div>
