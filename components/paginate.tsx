@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 type PaginateProps = {
   currentPage: number;
   isFirst?: boolean;
@@ -9,14 +11,27 @@ export default function Paginate({
   isFirst,
   isLast,
 }: PaginateProps) {
-  // TODO: Style buttons
   return (
-    <div className="prose dark:prose-invert text-sm text-center m-auto flex justify-between">
+    <div className="prose dark:prose-invert text-sm flex justify-between p-4 slate-700 w-full m-auto">
       <div>
-        {!isFirst && <a href={`/feed/${currentPage - 1}`}>{"<- Prev"}</a>}
+        {!isFirst && (
+          <Link
+            href={`/feed/${currentPage - 1}`}
+            className="no-underline text-slate-400"
+          >
+            {"<- Prev"}
+          </Link>
+        )}
       </div>
       <div>
-        {!isLast && <a href={`/feed/${currentPage + 1}`}>{"Next ->"}</a>}
+        {!isLast && (
+          <Link
+            href={`/feed/${currentPage + 1}`}
+            className="no-underline text-slate-400"
+          >
+            {"Next ->"}
+          </Link>
+        )}
       </div>
     </div>
   );
