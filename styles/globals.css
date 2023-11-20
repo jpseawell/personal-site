@@ -29,3 +29,7 @@ body {
 a.link {
   @apply text-blue-500;
 }
+
+h1.article-header {
+  @apply mb-2;
+}

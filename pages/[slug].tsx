@@ -27,7 +27,7 @@ export default function Article({
   return (
     <BackPageLayout title={`${article.title} by Justin Seawell`}>
       <article className="prose lg:prose-xl dark:prose-invert">
-        <h1>{article.title}</h1>
+        <h1 className="article-header">{article.title}</h1>
         <div className="font-light text-slate-600">
           <FormattedDateTime isoDateTime={article.date} />
         </div>

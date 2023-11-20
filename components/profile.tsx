@@ -4,7 +4,7 @@ import githubSVG from "../public/github-mark-white.svg";
 
 export default function Profile() {
   return (
-    <div className="relative">
+    <div className="relative profile">
       <div className="mb-2 relative">
         {/* Banner */}
         <div
@@ -31,8 +31,8 @@ export default function Profile() {
 
         {/* Profile Info */}
         <div className="mt-0 md:mt-8 p-4 prose dark:prose-invert">
-          <h2>{content.profileName}</h2>
-          <p>{content.profileBio}</p>
+          <h1 className="mb-1 text-2xl font-semibold">{content.profileName}</h1>
+          <p className="mt-0">{content.profileBio}</p>
         </div>
       </div>
     </div>
