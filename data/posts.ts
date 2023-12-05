@@ -23,6 +23,14 @@ export const posts: Post[] = [
     content:
       'Hello, welcome to my website. I post here about topics I\'m interested in, and projects I\'m working on. <br /><br />🔗 <a href="/about" class="link">About Me</a> <br />🔗 <a href="/resume" class="link">Resumé</a>',
   },
+  // Not Pinned
+  {
+    id: 4,
+    date: "2023-12-05T22:34:32.027Z",
+    pinned: false,
+    content:
+      '🎄🎅🏻👨‍💻 Ho Ho Ho!<br /><br />This year I decided to try my hand at <a href="https://adventofcode.com/2023" target="_blank" class="link">Advent of Code</a>. It\'s a daily coding problem from the 1st of Dec. until Christmas. I\'ll be documenting my progess here and <a href="https://github.com/jpseawell/aoc" class="link" target="_blank">on Github</a> along the way!',
+  },
   {
     id: 3,
     date: "2023-11-07T16:51:59.165Z",
