@@ -29,7 +29,7 @@ export const posts: Post[] = [
     date: "2023-12-05T22:34:32.027Z",
     pinned: false,
     content:
-      '🎄🎅🏻👨‍💻 Ho Ho Ho!<br /><br />This year I decided to try my hand at <a href="https://adventofcode.com/2023" target="_blank" class="link">Advent of Code</a>. It\'s a daily coding problem from the 1st of Dec. until Christmas. I\'ll be documenting my progess here and <a href="https://github.com/jpseawell/aoc" class="link" target="_blank">on Github</a> along the way!',
+      '🎄🎅🏻👨‍💻 Ho Ho Ho!<br /><br />This year I decided to try my hand at <a href="https://adventofcode.com/2023" target="_blank" class="link">Advent of Code</a>. It\'s a daily coding problem from the 1st of Dec. until Christmas. I\'ll be documenting my progess here and <a href="https://github.com/jpseawell/aoc/tree/main/2023" class="link" target="_blank">on Github</a> along the way!',
   },
   {
     id: 3,
