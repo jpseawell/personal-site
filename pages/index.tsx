@@ -3,7 +3,13 @@ import Layout from "@/components/layout";
 import Paginate from "@/components/paginate";
 import Profile from "@/components/profile";
 import { POSTS_PER_PAGE } from "@/config";
-import { Post as PostType, posts } from "@/data/posts";
+import {
+  Post as PostType,
+  filterPosts,
+  getPosts,
+  posts,
+  sortPosts,
+} from "@/data/posts";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 
 interface HomePageProps {
@@ -12,11 +18,12 @@ interface HomePageProps {
 }
 
 export const getStaticProps = (() => {
+  const pageNum = 1; // Home page is always the first page
   const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE);
-  const curr = 1; // Home page is always the first page
-  const isLast = curr === totalPages;
+  const isLast = pageNum === totalPages;
+  const postsForPage = getPosts(pageNum);
 
-  return { props: { posts: posts.slice(0, POSTS_PER_PAGE), isLast } };
+  return { props: { posts: postsForPage, isLast } };
 }) satisfies GetStaticProps<HomePageProps>;
 
 export default function Home({

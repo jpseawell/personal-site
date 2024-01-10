@@ -3,7 +3,13 @@ import Layout from "@/components/layout";
 import Paginate from "@/components/paginate";
 import Profile from "@/components/profile";
 import { POSTS_PER_PAGE } from "@/config";
-import { Post as PostType, posts } from "@/data/posts";
+import {
+  Post as PostType,
+  filterPosts,
+  getPosts,
+  posts,
+  sortPosts,
+} from "@/data/posts";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 
 interface FeedPageProps {
@@ -33,14 +39,11 @@ export const getStaticProps = (({ params }) => {
     throw new Error("provided page param is not a string");
 
   const pageNum = parseInt(page);
-  const start = (pageNum - 1) * POSTS_PER_PAGE;
-  const end = pageNum * POSTS_PER_PAGE;
-
   const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE);
   const isFirst = pageNum === 1;
   const isLast = pageNum === totalPages;
-
-  return { props: { posts: posts.slice(start, end), page, isFirst, isLast } };
+  const postsForPage = getPosts(pageNum);
+  return { props: { posts: postsForPage, page, isFirst, isLast } };
 }) satisfies GetStaticProps<FeedPageProps>;
 
 export default function FeedPage({
