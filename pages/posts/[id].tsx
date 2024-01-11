@@ -53,9 +53,7 @@ export default function PostPage({
           <BackButton />
         </div>
         {posts.map((post) => (
-          <a key={post.id} href={`/posts/${post.id}`}>
-            <PostComponent post={post} expanded />
-          </a>
+          <PostComponent key={post.id} post={post} expanded />
         ))}
       </Layout>
     </>
