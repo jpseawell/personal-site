@@ -13,12 +13,12 @@ export function Post({ post, expanded }: PostProps) {
   return (
     <div
       className={`border-slate-800 ${
-        post?.replyTo
+        post?.prev
           ? "px-4 py-3 border-l border-solid ml-6"
           : "p-4 border-t border-dashed"
       }
       
-      ${post.replyTo && !post?.hasReplies && "mb-4"}
+      ${post.prev && !post?.next && "mb-4"}
       `}
     >
       {post.pinned && (

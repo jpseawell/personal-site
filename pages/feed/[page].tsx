@@ -3,13 +3,8 @@ import Layout from "@/components/layout";
 import Paginate from "@/components/paginate";
 import Profile from "@/components/profile";
 import { POSTS_PER_PAGE } from "@/config";
-import {
-  Post as PostType,
-  filterPosts,
-  getPosts,
-  posts,
-  sortPosts,
-} from "@/data/posts";
+import { Post as PostType, posts } from "@/data/posts";
+import { getPosts } from "@/services/posts";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 
 interface FeedPageProps {

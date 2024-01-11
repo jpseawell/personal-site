@@ -1,7 +1,6 @@
 import BackPageLayout from "@/components/backPageLayout";
 import FormattedDateTime from "@/components/formattedDateTime";
 import { articlesBySlug, Article } from "@/data/articles";
-import { camelToSlug } from "@/utils";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 
 interface ArticlePageProps {
