@@ -27,6 +27,12 @@ export const posts: Post[] = [
   },
   // Not Pinned
   {
+    id: 9,
+    date: "2024-02-16T14:31:17.203Z",
+    content:
+      "I want to post more content here, but I've been very busy with a work project. New projects & posts soon! 👨‍💻",
+  },
+  {
     id: 8,
     prev: 6,
     date: "2023-12-26T22:34:32.027Z",
