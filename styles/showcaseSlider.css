@@ -1,0 +1,23 @@
+.showcase-slider-gap .slick-slide > div {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.showcase-slider-gap .slick-list {
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+}
+
+.showcase-slider-gap .slick-dots li button:before {
+  border-radius: 0 !important;
+  width: 8px;
+  height: 8px;
+  content: "";
+  background: #bbb;
+  display: block;
+  transition: background 0.2s;
+}
+
+.showcase-slider-gap .slick-dots li.slick-active button:before {
+  background: #333;
+}

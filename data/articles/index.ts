@@ -1,18 +1,25 @@
 import { camelToSlug } from "@/utils";
 import { about } from "./about";
 import { resume } from "./resume";
+import { checkIn } from "./check-in";
+import { LinkItem } from "@/types/link";
 
-export type Progress = "In Progress" | "Completed";
 export interface Article {
-  date: string;
   title: string;
   content: string;
-  progress?: Progress;
+  bannerImg?: {
+    path: string;
+    alt?: string;
+  };
+  keywords: string[];
+  tech: string[];
+  links: LinkItem[];
 }
 
 const articles: { [key: string]: Article } = {
   about,
   resume,
+  checkIn,
 };
 
 export const articlesBySlug: { [key: string]: Article } = Object.keys(

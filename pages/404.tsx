@@ -1,10 +1,15 @@
+import BackButton from "@/components/backButton";
 import BackPageLayout from "@/components/backPageLayout";
+import Layout from "@/components/layout";
 import Image from "next/image";
 
 export default function Custom404() {
   return (
-    <BackPageLayout>
-      <div className="prose lg:prose-xl dark:prose-invert">
+    <Layout>
+      <div>
+        <BackButton />
+      </div>
+      <div className="prose lg:prose-lg">
         <h1>Uh oh...</h1>
         <p>I think you may be lost partner.</p>
         <Image
@@ -14,6 +19,6 @@ export default function Custom404() {
           height={400}
         />
       </div>
-    </BackPageLayout>
+    </Layout>
   );
 }

@@ -1,38 +1,52 @@
 import { content } from "@/data/content";
-import Image from "next/image";
-import githubSVG from "../public/github-mark-white.svg";
 
 export default function Profile() {
   return (
-    <div className="relative profile">
-      <div className="mb-2 relative">
-        {/* Banner */}
-        <div
-          className={`bg-slate-800 h-32 bg-[url('/banner.png')] bg-cover bg-center`}
-        ></div>
-        {/* Avatar */}
-        <div
-          className={`bg-slate-800 rounded-full md:h-32 md:w-32 h-24 w-24 absolute top-16 md:top-16 left-4 border-2 border-slate-800 bg-[url('/avatar.jpg')] bg-contain bg-center shadow-md`}
-        ></div>
-        <div className="text-right p-4">
+    <div className=" flex items-center justify-center">
+      {/* Avatar */}
+      <div
+        className={`bg-slate-800 rounded-full h-[100px] w-[100px] md:h-[150px] md:w-[150px] bg-[url('/avatar.jpg')] bg-contain bg-center flex-shrink-0`}
+      ></div>
+
+      {/* Profile Info */}
+      <div className="mt-0 pl-4 md:pl-8 flex-1 animate-in fade-in slide-in-from-top-12 duration-500">
+        <h1 className="mb-0 text-2xl md:text-4xl font-semibold font-ibm-plex-mono">
+          {content.profileName}
+        </h1>
+        <p className="mt-0 mb-3 font-medium md:text-lg">{content.profileBio}</p>
+        <div className="flex gap-6">
           <a
-            href="https://github.com/jpseawell"
+            href={content.linkedIn}
+            className="underline font-regular text-[12px] md:text-sm transition-colors hover:text-[rgb(var(--highlight))]"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Image
-              className="inline-block"
-              src={githubSVG}
-              alt="Justin's Github"
-              width={28}
-            />
+            LinkedIn
           </a>
-        </div>
-
-        {/* Profile Info */}
-        <div className="mt-0 md:mt-8 p-4 prose dark:prose-invert">
-          <h1 className="mb-1 text-2xl font-semibold">{content.profileName}</h1>
-          <p className="mt-0">{content.profileBio}</p>
+          <a
+            href={content.github}
+            className="underline font-regular text-[12px] md:text-sm transition-colors hover:text-[rgb(var(--highlight))]"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+          <a
+            href={`mailto:${content.email}`}
+            className="underline font-regular text-[12px] md:text-sm transition-colors hover:text-[rgb(var(--highlight))]"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Email
+          </a>
+          <a
+            href={content.twitter}
+            className="underline font-regular text-[12px] md:text-sm transition-colors hover:text-[rgb(var(--highlight))]"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            X
+          </a>
         </div>
       </div>
     </div>

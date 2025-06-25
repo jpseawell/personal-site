@@ -12,7 +12,7 @@ export default function Paginate({
   isLast,
 }: PaginateProps) {
   return (
-    <div className="prose dark:prose-invert text-sm flex justify-between p-4 slate-700 w-full m-auto">
+    <div className="prose text-sm flex justify-between p-4 slate-700 w-full m-auto">
       <div>
         {!isFirst && (
           <Link
