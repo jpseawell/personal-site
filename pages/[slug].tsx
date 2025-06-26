@@ -8,6 +8,7 @@ import ReactMarkdown from "react-markdown";
 import Image from "next/image";
 import BackButton from "@/components/backButton";
 import Links from "@/components/links";
+import SearchBar from "@/components/searchBar";
 
 interface ArticlePageProps {
   article: Article;
@@ -37,6 +38,7 @@ export default function Article({
       <div>
         <BackButton />
       </div>
+      <SearchBar />
       <article className="prose max-w-none">
         {article.bannerImg && (
           <Image
@@ -68,7 +70,22 @@ export default function Article({
           <h3 className="not-prose font-['IBM_Plex_Mono',monospace] font-normal !font-normal text-xl md:text-xl">
             Tech
           </h3>
-          <div className="mt-4">{article.tech.join(", ")}</div>
+          <div className="mt-4 font-['IBM_Plex_Mono',monospace] text-base">
+            {article.tech.map((tech, idx) => (
+              <span key={tech}>
+                <span style={{ color: "rgb(var(--highlight-2))" }}>{tech}</span>
+                {idx < article.tech.length - 1 && (
+                  <span
+                    style={{
+                      color: "rgb(var(--foreground-rgb))",
+                    }}
+                  >
+                    ,{" "}
+                  </span>
+                )}
+              </span>
+            ))}
+          </div>
         </div>
       )}
     </Layout>

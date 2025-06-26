@@ -3,6 +3,7 @@ import Profile from "@/components/profile";
 import ShowcaseSlider from "@/components/showcaseSlider";
 import Link from "next/link";
 import Links from "@/components/links";
+import SearchBar from "@/components/searchBar";
 
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { LinkItem } from "@/types/link";
@@ -53,14 +54,7 @@ export default function Home({
   return (
     <Layout>
       <Profile />
-      <div className="bg-gradient-to-r from-amber-400 via-emerald-400 to-blue-400 p-[2px] rounded-xl w-full max-w-xl">
-        <div className="bg-stone-50 rounded-[10px] p-4">
-          <span className="font-['IBM_Plex_Mono',monospace] text-base md:text-lg text-gray-800">
-            Search
-          </span>
-        </div>
-      </div>
-
+      <SearchBar />
       <div className="md:text-lg">{introText}</div>
       <div>
         <ShowcaseSlider

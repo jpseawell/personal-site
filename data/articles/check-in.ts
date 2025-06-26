@@ -1,7 +1,10 @@
 import { Article } from ".";
 
 export const checkIn: Article = {
+  slug: "check-in",
   title: "Building Web Check-In",
+  description:
+    "Lobby lines aren’t fun, so we replaced them with a self-service web app that feels obvious to use.",
   bannerImg: {
     path: "/images/vegas-check-in-opt.webp",
     alt: "Checking in to a Las Vegas hotel.",
@@ -24,5 +27,13 @@ Lobby lines aren’t fun, so we replaced them with a self-service web app that f
       openNewTab: true,
     },
   ],
-  tech: ["React", "Next JS"],
+  tech: [
+    "React",
+    "Next JS",
+    "JavaScript",
+    "TypeScript",
+    "GQL",
+    "GraphQL",
+    "Micro Front-End",
+  ],
 };

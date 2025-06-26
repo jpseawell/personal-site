@@ -1,7 +1,7 @@
 import { Article } from ".";
-import { content } from "../content";
 
 export const resume: Article = {
+  slug: "resume",
   title: "My Resumé 📄",
   content: `
 # Justin Seawell  
@@ -53,7 +53,7 @@ Senior software engineer with 8+ years of full-stack experience across high-impa
 **Tooling & Practices:** Jest, Cypress, CI/CD, Data Structures & Algorithms, Unit & Integration Testing
 
   `,
-  keywords: [],
+  keywords: ["resume", "work history"],
   links: [],
   tech: [],
 };

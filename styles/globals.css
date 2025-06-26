@@ -6,6 +6,7 @@
   --foreground-rgb: 35, 35, 35;
   --background-rgb: 251, 250, 249;
   --highlight: 251, 191, 36; /* amber-400 */
+  --highlight-2: 56, 189, 248; /* blue-400 */
 }
 
 body {

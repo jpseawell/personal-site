@@ -6,6 +6,8 @@ import { LinkItem } from "@/types/link";
 
 export interface Article {
   title: string;
+  slug: string;
+  description?: string;
   content: string;
   bannerImg?: {
     path: string;
@@ -22,10 +24,25 @@ const articles: { [key: string]: Article } = {
   checkIn,
 };
 
-export const articlesBySlug: { [key: string]: Article } = Object.keys(
+export const articlesBySlug: { [key: string]: Article } = Object.values(
   articles
-).reduce((acc, key) => {
-  const slug = camelToSlug(key);
-  acc[slug] = articles[key];
+).reduce((acc, article) => {
+  acc[article.slug] = article;
   return acc;
 }, {} as { [key: string]: Article });
+
+export function searchArticlesByKeyword(searchTerm: string): Article[] {
+  if (!searchTerm) return [];
+  const lower = searchTerm.toLowerCase();
+  return Object.values(articlesBySlug).filter((article) =>
+    article.keywords.some((keyword) => keyword.toLowerCase().includes(lower))
+  );
+}
+
+export function searchArticlesByTech(searchTerm: string): Article[] {
+  if (!searchTerm) return [];
+  const lower = searchTerm.toLowerCase();
+  return Object.values(articlesBySlug).filter((article) =>
+    article.tech.some((tech) => tech.toLowerCase().includes(lower))
+  );
+}

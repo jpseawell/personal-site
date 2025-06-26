@@ -1,7 +1,10 @@
 import { Article } from ".";
 
 export const about: Article = {
+  slug: "about",
   title: "About Me 👋",
+  description:
+    "I'm Justin Seawell, a full-stack engineer who likes to turn rough ideas into real products.",
   bannerImg: {
     path: "/images/about-me-opt.png",
     alt: "Mural of ideas into products.",
@@ -15,6 +18,7 @@ export const about: Article = {
 
   When I'm away from the keyboard I'm usually with my wife and toddler, layering tracks in Logic Pro, or firing up the grill. Whether it's music, cooking, or software, I get the same satisfaction from tweaking details until everything clicks.
   `,
-  keywords: [],
+  keywords: ["about"],
   tech: [],
+  links: [],
 };
