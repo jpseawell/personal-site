@@ -73,7 +73,26 @@ export default function Article({
           <div className="mt-4 font-['IBM_Plex_Mono',monospace] text-base">
             {article.tech.map((tech, idx) => (
               <span key={tech}>
-                <span style={{ color: "rgb(var(--highlight-2))" }}>{tech}</span>
+                <a
+                  href={`?s=${encodeURIComponent(tech)}`}
+                  style={{
+                    color: "rgb(var(--highlight-2))",
+                    cursor: "pointer",
+                    textDecoration: "underline",
+                  }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (typeof window !== "undefined") {
+                      const url = new URL(window.location.href);
+                      url.searchParams.set("s", tech);
+                      window.history.replaceState({}, "", url.toString());
+                      // Optionally, trigger a custom event or callback if you want to refocus the search bar immediately
+                      window.dispatchEvent(new Event("popstate"));
+                    }
+                  }}
+                >
+                  {tech}
+                </a>
                 {idx < article.tech.length - 1 && (
                   <span
                     style={{

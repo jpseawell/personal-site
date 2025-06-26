@@ -20,7 +20,16 @@ export default function SearchBar() {
   >([]);
   const router = useRouter();
 
+  const handleFocus = () => {
+    setFocused(true);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    inputRef.current?.focus();
+  };
+
   useEffect(() => {
+    if (focused) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
     if (focused && barRef.current) {
       setBarWidth(barRef.current.offsetWidth);
     }
@@ -65,6 +74,42 @@ export default function SearchBar() {
     }
   }, [searchTerm]);
 
+  useEffect(() => {
+    // Focus and set search term if 's' param is present in the URL
+    if (router && typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const s = params.get("s");
+      if (s && s.length > 0) {
+        setSearchTerm(s);
+        setFocused(true);
+        setTimeout(() => {
+          inputRef.current?.focus();
+        }, 0);
+      }
+    }
+  }, [router]);
+
+  useEffect(() => {
+    // Listen for popstate to handle tech link clicks updating the query param
+    const handlePopState = () => {
+      const params = new URLSearchParams(window.location.search);
+      const s = params.get("s");
+      if (s && s.length > 0) {
+        setSearchTerm(s);
+        setFocused(true);
+        setTimeout(() => {
+          inputRef.current?.focus();
+        }, 0);
+      }
+    };
+    window.addEventListener("popstate", handlePopState);
+    // Also run once on mount (for direct loads)
+    handlePopState();
+    return () => {
+      window.removeEventListener("popstate", handlePopState);
+    };
+  }, []);
+
   return (
     <>
       {focused && (
@@ -79,13 +124,7 @@ export default function SearchBar() {
           ref={barRef}
           className={`bg-gradient-to-r from-amber-400 via-emerald-400 to-blue-400 p-[2px] rounded-xl w-full  z-50 transition-all duration-200 relative`}
         >
-          <div
-            className="bg-stone-50 rounded-[10px] p-4"
-            onClick={() => {
-              setFocused(true);
-              inputRef.current?.focus();
-            }}
-          >
+          <div className="bg-stone-50 rounded-[10px] p-4" onClick={handleFocus}>
             <input
               ref={inputRef}
               type="text"
@@ -93,7 +132,7 @@ export default function SearchBar() {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full bg-transparent outline-none font-['IBM_Plex_Mono',monospace] text-base md:text-lg text-gray-800 placeholder-gray-400"
-              onFocus={() => setFocused(true)}
+              onFocus={handleFocus}
               onKeyDown={(e) => {
                 if (e.key === "Escape") {
                   setFocused(false);
