@@ -9,7 +9,7 @@ export default function Container({
 }) {
   return (
     <div
-      className={`w-full min-h-screen px-6 pt-10 md:pt-20 pb-6 flex flex-col gap-10 md:gap-12 ${
+      className={`w-full px-6 pt-10 md:pt-20 pb-6 flex flex-col gap-10 md:gap-12 ${
         className ?? ""
       }`}
     >

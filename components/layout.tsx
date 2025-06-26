@@ -21,7 +21,8 @@ export default function Layout({ title, children }: LayoutProps) {
     <>
       <CustomHead title={title} />
       <main
-        className={`max-w-2xl m-auto flex min-h-screen flex-col items-center justify-between ${inter.className} ${ibmPlexMono.variable}`}
+        className={`max-w-2xl m-auto flex flex-col items-center justify-between ${inter.className} ${ibmPlexMono.variable}`}
+        style={{ minHeight: "calc(100vh - 3rem)" }}
       >
         <Container className="flex-1 w-full flex flex-col">
           {children}
