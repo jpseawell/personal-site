@@ -7,7 +7,7 @@ export const content = {
   twitter: "https://twitter.com/jpseawell",
   metaData: {
     title: "Justin Seawell | Software Engineer",
-    description: "A place to share my thoughts, projects, and ideas. ",
+    description: "Sharing my past development projects and accomplishments.",
     image: "/jps-meta-opt.jpeg",
   },
 };

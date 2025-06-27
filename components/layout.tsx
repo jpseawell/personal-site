@@ -13,13 +13,20 @@ const ibmPlexMono = IBM_Plex_Mono({
 
 type LayoutProps = {
   title?: string;
+  description?: string;
+  ogImage?: string;
   children: ReactNode;
 };
 
-export default function Layout({ title, children }: LayoutProps) {
+export default function Layout({
+  title,
+  description,
+  ogImage,
+  children,
+}: LayoutProps) {
   return (
     <>
-      <CustomHead title={title} />
+      <CustomHead title={title} description={description} ogImage={ogImage} />
       <main
         className={`max-w-2xl m-auto flex flex-col items-center justify-between ${inter.className} ${ibmPlexMono.variable}`}
         style={{ minHeight: "calc(100vh - 3rem)" }}

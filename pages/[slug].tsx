@@ -34,29 +34,36 @@ export default function Article({
   article,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <Layout title={`${article.title}`}>
+    <Layout
+      title={article.title}
+      description={article.description}
+      ogImage={article.bannerImg?.path}
+    >
       <div>
         <BackButton />
       </div>
       <SearchBar />
       <article className="prose max-w-none">
         {article.bannerImg && (
-          <Image
-            src={article.bannerImg.path}
-            alt={article.bannerImg.alt || "Banner image"}
-            width={1200}
-            height={160}
+          <div
             style={{
-              height: "160px",
+              position: "relative",
               width: "100%",
+              height: "240px",
               borderRadius: "8px",
-              objectFit: "cover",
-              display: "block",
+              overflow: "hidden",
               margin: "0 auto 1.5rem auto",
             }}
-            sizes="100vw"
-            priority
-          />
+          >
+            <Image
+              src={article.bannerImg.path}
+              alt={article.bannerImg.alt || "Banner image"}
+              fill
+              sizes="(max-width: 768px) 100vw, 1200px"
+              style={{ objectFit: "cover", borderRadius: "8px" }}
+              priority
+            />
+          </div>
         )}
         <ReactMarkdown>{article.content}</ReactMarkdown>
       </article>

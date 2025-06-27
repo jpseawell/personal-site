@@ -3,9 +3,15 @@ import Head from "next/head";
 
 type CustomHeadProps = {
   title?: string;
+  description?: string;
+  ogImage?: string;
 };
 
-export default function CustomHead({ title }: CustomHeadProps) {
+export default function CustomHead({
+  title,
+  description,
+  ogImage,
+}: CustomHeadProps) {
   return (
     <Head>
       <title>{title || content.metaData.title}</title>
@@ -50,8 +56,11 @@ export default function CustomHead({ title }: CustomHeadProps) {
         href="/apple-touch-icon.png"
       />
       <link rel="manifest" href="/site.webmanifest" />
-      <meta property="og:description" content={content.metaData.description} />
-      <meta property="og:image" content={content.metaData.image} />
+      <meta
+        property="og:description"
+        content={description || content.metaData.description}
+      />
+      <meta property="og:image" content={ogImage || content.metaData.image} />
       <meta property="og:type" content="website" />
     </Head>
   );
