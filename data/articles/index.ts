@@ -1,8 +1,8 @@
-import { camelToSlug } from "@/utils";
 import { about } from "./about";
 import { resume } from "./resume";
 import { checkIn } from "./check-in";
 import { LinkItem } from "@/types/link";
+import { trips } from "./trips";
 
 export interface Article {
   title: string;
@@ -22,6 +22,7 @@ const articles: { [key: string]: Article } = {
   about,
   resume,
   checkIn,
+  trips,
 };
 
 export const articlesBySlug: { [key: string]: Article } = Object.values(

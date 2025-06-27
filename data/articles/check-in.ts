@@ -10,54 +10,44 @@ export const checkIn: Article = {
     alt: "Checking in to a Las Vegas hotel.",
   },
   content: `
-  # Building _MGM_'s Web Check-In Flow
+  # Building _MGM_'s Web Check-In Flow  
+*Lead Front-End Engineer · React, TypeScript, Next.js*
 
-  *Lead Front-End Engineer · React 18, TypeScript, Next.js*
+## Project Snapshot  
+The Web Check-In flow (aka *WCI*) is a Next.js web app built on the MGM Web Platform. It’s a micro-front-end rendered inside the MGM shell, which supplies the standard header and footer.
 
-  ## What is it?
-  The Web Check-In flow (aka *WCI*) is a Next.js web app built on the MGM Web Platform. It's a Micro Front-end
-  application where the content is rendered as part of the page within the MGM Shell app that displays the standard header/footer.
+## The Pain We Solved  
+Lobby lines at a large hotel aren’t fun. As part of the *Front Desk of the Future* effort, I built a web flow that lets guests check in from the comfort of their browser.
 
-  ## Why did you build it?
-  Lobby lines at a large hotel aren't fun. As part of the *Front-desk of the Future* effort, I developed a
-  web flow that enables guests to check in to their room from the comfort of their web browser.
+## Under the Hood  
+The Web Check-In Flow is a sequence of pages that guide guests through the entire process.
 
-  ## How is it built?
-  The Web Check In Flow consists of a series of web pages that the guest navigates through in order
-  to complete checkin.
-  
-  #### The flow is as follows:
-  1. Start page (reservation lookup)
-  2. Room Add-ons and upgrades
-  3. Identitiy Verification
-  4. Payment validation
-  5. Review & Check-in
+### Five-Step Guest Journey  
+1. Start page (reservation lookup)  
+2. Room add-ons and upgrades  
+3. Identity verification  
+4. Payment validation  
+5. Review & check-in  
 
-  #### Implementation Details:
-  - There's an app state context that maintains information about the guest's check-in process.
-  - Each page fires one query to a GQL back-end for data retrieval.
-  - If the guest abandons the flow at any point, then they need to start over.
-  - The guest is redirected to a 3rd party ID verification web flow and then returned to the check-in flow authenticated as a verified user.
-  - Once the guest clicks the check in button, then their reservation data is submitted to the back-end to move the reservation to checked-in state.
-  - Non-sensitive data is stored to the browser session.
+### Implementation Highlights  
+- An app-state context tracks each guest’s progress.  
+- Every page fires one GraphQL query for data.  
+- If a guest abandons the flow, they start over.  
+- Guests are redirected to a third-party ID-verification flow, then returned as verified users.  
+- On check-in, reservation data hits the back end to switch the reservation to “checked-in.”  
+- Non-sensitive data lives in session storage.
 
-  ## What challenges did you overcome during development?
-  The two biggest challenges were turn-around time, and a quirk of the micro front-end shell integration.
+## Roadblocks & Fixes  
 
-  ### Quick Turn-Around
-  For various reasons, I needed to implement and release an MVP to begin the WCI pilot program in under three 2-week sprints.
-  This left little room for unexpected issues. I worked an extra Saturday and was able to deliver on time.
+### Racing the Clock  
+An MVP had to ship in under three two-week sprints. One extra Saturday later, the pilot launched on time.
 
-  ### The Page Refresh Issue
-  Long story short, I inherited a web app architecture that caused a full web page refresh on page change. This is a problem
-  because it was clearing the app state from page to page which means the app didn't know where the user was at in the flow.
+### Taming the Full-Refresh Bug  
+The inherited shell triggered a full page refresh on route changes, wiping app state. The bug appeared only in certain environments, but once identified, I refactored navigation to keep state intact.
 
-  The kicker is that this only happened on certain environments, so I had no idea this would happen while I was on local dev env.
-  After a lot of headache, I was able to find a solution and move forward.
+## Impact in the Wild  
+The pilot property rolled out smoothly, and WCI is now live across all MGM properties. Adoption keeps climbing as more guests choose the hassle-free web check-in.
 
-  ## What were the results?
-
-  The results were great! We rolled out the check-in flow from the single pilot property to all MGM properties. The web check-in flow is still used today by many guests, and it's adoption is increasing.
 `,
   keywords: ["MGM", "Check-In"],
   links: [
