@@ -15,6 +15,7 @@ type LayoutProps = {
   title?: string;
   description?: string;
   ogImage?: string;
+  slug?: string;
   children: ReactNode;
 };
 
@@ -22,11 +23,17 @@ export default function Layout({
   title,
   description,
   ogImage,
+  slug,
   children,
 }: LayoutProps) {
   return (
     <>
-      <CustomHead title={title} description={description} ogImage={ogImage} />
+      <CustomHead
+        title={title}
+        description={description}
+        ogImage={ogImage}
+        slug={slug}
+      />
       <main
         className={`max-w-2xl m-auto flex flex-col items-center justify-between ${inter.className} ${ibmPlexMono.variable}`}
         style={{ minHeight: "calc(100vh - 3rem)" }}

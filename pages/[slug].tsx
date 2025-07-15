@@ -38,6 +38,7 @@ export default function Article({
       title={article.title}
       description={article.description}
       ogImage={article.bannerImg?.path}
+      slug={article.slug}
     >
       <div>
         <BackButton />

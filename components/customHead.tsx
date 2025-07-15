@@ -5,13 +5,17 @@ type CustomHeadProps = {
   title?: string;
   description?: string;
   ogImage?: string;
+  slug?: string;
 };
 
 export default function CustomHead({
   title,
   description,
   ogImage,
+  slug = "",
 }: CustomHeadProps) {
+  const img = `https://justinseawell.com${ogImage || content.metaData.image}`;
+
   return (
     <Head>
       <title>{title || content.metaData.title}</title>
@@ -60,13 +64,16 @@ export default function CustomHead({
         property="og:description"
         content={description || content.metaData.description}
       />
-      <meta
-        property="og:image"
-        content={`https://justinseawell.com${
-          ogImage || content.metaData.image
-        }`}
-      />
+      <meta property="og:image" content={img} />
       <meta property="og:type" content="website" />
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta property="twitter:domain" content="justinseawell.com" />
+      <meta
+        property="twitter:url"
+        content={`https://justinseawell.com/${slug}`}
+      />
+      <meta name="twitter:image" content={img} />
     </Head>
   );
 }
