@@ -60,7 +60,12 @@ export default function CustomHead({
         property="og:description"
         content={description || content.metaData.description}
       />
-      <meta property="og:image" content={ogImage || content.metaData.image} />
+      <meta
+        property="og:image"
+        content={`https://justinseawell.com${
+          ogImage || content.metaData.image
+        }`}
+      />
       <meta property="og:type" content="website" />
     </Head>
   );
