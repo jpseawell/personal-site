@@ -27,6 +27,12 @@ export const getStaticProps = (() => {
 
   const showcaseItems: ShowcaseSliderItem[] = [
     {
+      imageUrl: "/images/sea-mini-app.png",
+      link: "/sea-mini-app",
+      content: "Check out my first *Mini App* on Farcaster.",
+      highlightClass: "text-amber-400",
+    },
+    {
       imageUrl: "/images/vegas-check-in-opt.webp",
       link: "/check-in",
       content: "I built the Web Check In flow for *MGM Resorts* from scratch.",

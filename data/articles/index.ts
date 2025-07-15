@@ -3,6 +3,7 @@ import { resume } from "./resume";
 import { checkIn } from "./check-in";
 import { LinkItem } from "@/types/link";
 import { trips } from "./trips";
+import { seaMiniApp } from "./sea-mini-app";
 
 export interface Article {
   title: string;
@@ -23,6 +24,7 @@ const articles: { [key: string]: Article } = {
   resume,
   checkIn,
   trips,
+  seaMiniApp,
 };
 
 export const articlesBySlug: { [key: string]: Article } = Object.values(

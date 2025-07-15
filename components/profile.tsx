@@ -39,14 +39,14 @@ export default function Profile() {
           >
             Email
           </a> */}
-          {/* <a
+          <a
             href={content.twitter}
             className="underline font-regular text-[12px] md:text-sm transition-colors hover:text-[rgb(var(--highlight))]"
             target="_blank"
             rel="noopener noreferrer"
           >
             X
-          </a> */}
+          </a>
         </div>
       </div>
     </div>
